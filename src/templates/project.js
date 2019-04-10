@@ -3,12 +3,14 @@ import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import Layout from "../components/layout"
 import ReactMarkdown from "react-markdown"
+import TechStackImage from "../components/TechStackImage"
 
 export const query = graphql`
   query($slug: String) {
     sanityProjects(slug: { current: { eq: $slug } }) {
       title
       description
+      techStack
       body {
         children {
           text
@@ -35,12 +37,17 @@ export default ({ data }) => (
     />
     <div
       style={{
-        margin: `5rem auto 0 auto`,
+        margin: `1rem auto`,
         maxWidth: 960,
         padding: `0px 1.0875rem 1.45rem`,
         paddingTop: 0,
       }}
     >
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {data.sanityProjects.techStack.map(tech => (
+          <TechStackImage tech={tech} />
+        ))}
+      </div>
       <div>
         <button>See the code</button>
         <button>See the live demo</button>
