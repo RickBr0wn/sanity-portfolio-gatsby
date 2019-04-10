@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import Layout from "../components/layout"
+import ReactMarkdown from "react-markdown"
 
 export const query = graphql`
   query($slug: String) {
@@ -13,6 +14,7 @@ export const query = graphql`
           text
         }
       }
+      markdown
       mainImage {
         asset {
           fluid {
@@ -39,15 +41,14 @@ export default ({ data }) => (
         paddingTop: 0,
       }}
     >
-      <h1>{data.sanityProjects.title}</h1>
-      <p>{data.sanityProjects.description}</p>
+      <div>
+        <button>See the code</button>
+        <button>See the live demo</button>
+      </div>
       <br />
-      {console.log(data.sanityProjects.body[2].children[0].text)}
-      {data.sanityProjects.body.map(obj => {
-        const text = obj.children[0].text
-        return <p>{text}</p>
-      })}
+      <ReactMarkdown source={data.sanityProjects.markdown} />
       <br />
+
       <Link to="/">Back to home</Link>
     </div>
   </Layout>
