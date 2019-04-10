@@ -44,9 +44,10 @@ export default ({ data }) => (
       }}
     >
       <div style={{ display: "flex", justifyContent: "center" }}>
-        {data.sanityProjects.techStack.map(tech => (
-          <TechStackImage tech={tech} />
-        ))}
+        {data.sanityProjects.techStack &&
+          data.sanityProjects.techStack.map(tech => (
+            <TechStackImage tech={tech} />
+          ))}
       </div>
       <div>
         <button>See the code</button>
