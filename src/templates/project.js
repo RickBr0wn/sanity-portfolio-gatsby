@@ -43,7 +43,12 @@ export default ({ data }) => (
         paddingTop: 0,
       }}
     >
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         {data.sanityProjects.techStack &&
           data.sanityProjects.techStack.map(tech => (
             <TechStackImage tech={tech} />
