@@ -2,6 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import "./index.css"
+import About from "../components/About"
+
+import hero from "../images/hero.jpg"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -33,14 +36,28 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <div className="main">
+      <div className="hero-container">
+        <img
+          src={hero}
+          style={{ width: "100%", maxHeight: "400px", opacity: "0.5" }}
+        />
+        <div className="title">
+          <h1>Rick Brown</h1>
+          <h2>Web Developer</h2>
+          <i className="fab fa-github" />
+          <i className="fab fa-twitter" />
+        </div>
+      </div>
       <ul
         style={{
           listStyle: "none",
           display: "flex",
           alignItems: "space-between",
-          padding: 0,
+          padding: 20,
+          flexDirection: "column",
         }}
       >
+        <About />
         <div className="container">
           {data.allSanityProjects.edges.map(({ node: project }) => (
             <li key={project.slug.current} className="box">

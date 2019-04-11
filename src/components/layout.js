@@ -40,6 +40,12 @@ const Layout = ({ children }) => (
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a> &{" "}
             <a href="https://www.sanity.io">Sanity.io</a>
+            <p>
+              hero image taken by{" "}
+              <a href="https://www.instagram.com/fabricont/?utm_medium=referral&utm_source=unsplash">
+                @fabricont
+              </a>
+            </p>
           </footer>
         </div>
       </>

@@ -60,9 +60,11 @@ const TechStackImage = ({ tech }) => (
         <Img
           fluid={image}
           style={{
-            height: "50px",
-            width: "50px",
-            margin: "0 1rem 2rem 1rem",
+            height: "100%",
+            width: "100%",
+            maxWidth: "60px",
+            minWidth: "40px",
+            margin: "0 1rem",
           }}
         />
       )
