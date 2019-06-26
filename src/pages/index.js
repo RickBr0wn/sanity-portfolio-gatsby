@@ -48,16 +48,12 @@ const IndexPage = ({ data }) => (
           <i className="fab fa-twitter" />
         </div>
       </div>
+      <About />
       <ul
         style={{
           listStyle: "none",
-          display: "flex",
-          alignItems: "space-between",
-          padding: 20,
-          flexDirection: "column",
         }}
       >
-        <About />
         <div className="container">
           {data.allSanityProjects.edges.map(({ node: project }) => (
             <li key={project.slug.current} className="box">

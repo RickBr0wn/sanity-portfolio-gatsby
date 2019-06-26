@@ -28,7 +28,7 @@ export default function About() {
           <TechStackImage tech={tech} />
         ))}
       </div>
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1200px", margin: "50px auto" }}>
         <h1>About Me</h1>
         <p>
           I have always been interested in computer programming and dabbled with
