@@ -1,24 +1,19 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import styled from "styled-components"
+import STYLED from "./styled"
 
-const styles = {
-  navbarContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: "22px",
-    margin: 0,
-    padding: "0.8rem",
-  },
-}
-
-const Header = ({ siteTitle }) => (
-  <nav style={styles.navbarContainer}>
-    <h1 style={styles.title}>Rick Brown</h1>
-  </nav>
+const Header = ({ title }) => (
+  <STYLED.NavBar>
+    <h3>{title}</h3>
+    <STYLED.LinksWrapper>
+      <Link to="/">home</Link>
+      <Link to="/">about</Link>
+      <Link to="/">portfolio</Link>
+      <Link to="/">contact</Link>
+    </STYLED.LinksWrapper>
+  </STYLED.NavBar>
 )
 
 Header.propTypes = {

@@ -4,12 +4,14 @@
  *
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
+import STYLED from "./styled"
 import Header from "./header"
+
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -21,35 +23,35 @@ const Layout = ({ children }) => (
             title
           }
         }
+        allFile {
+          edges {
+            node {
+              childImageSharp {
+                fluid {
+                  base64
+                  src
+                  srcSet
+                }
+              }
+            }
+          }
+        }
       }
     `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
-          <main>{children}</main>
-          <footer
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              padding: `0px 1.0875rem 1.45rem`,
-              paddingTop: 0,
-            }}
-          >
-            Written by Rick Brown © {new Date().getFullYear()}, Powered by
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a> &{" "}
-            <a href="https://www.sanity.io">Sanity.io</a>
-            <p>
-              hero image taken by{" "}
-              <a href="https://www.instagram.com/fabricont/?utm_medium=referral&utm_source=unsplash">
-                @fabricont
-              </a>
-            </p>
-          </footer>
-        </div>
-      </>
-    )}
+    render={data => {
+      console.log({ data })
+      const backgroundImage =
+        data.allFile.edges[11].node.childImageSharp.fluid.src
+      return (
+        <>
+          <STYLED.Wrapper backgroundImage={backgroundImage}>
+            <Header title={data.site.siteMetadata.title} />
+            <STYLED.InnerWrapper>Content</STYLED.InnerWrapper>
+            <STYLED.Footer>next page</STYLED.Footer>
+          </STYLED.Wrapper>
+        </>
+      )
+    }}
   />
 )
 
