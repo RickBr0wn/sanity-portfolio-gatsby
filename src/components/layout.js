@@ -23,35 +23,17 @@ const Layout = ({ children }) => (
             title
           }
         }
-        allFile {
-          edges {
-            node {
-              childImageSharp {
-                fluid {
-                  base64
-                  src
-                  srcSet
-                }
-              }
-            }
-          }
-        }
       }
     `}
-    render={data => {
-      console.log({ data })
-      const backgroundImage =
-        data.allFile.edges[11].node.childImageSharp.fluid.src
-      return (
-        <>
-          <STYLED.Wrapper backgroundImage={backgroundImage}>
-            <Header title={data.site.siteMetadata.title} />
-            <STYLED.InnerWrapper>Content</STYLED.InnerWrapper>
-            <STYLED.Footer>next page</STYLED.Footer>
-          </STYLED.Wrapper>
-        </>
-      )
-    }}
+    render={data => (
+      <>
+        <STYLED.Wrapper>
+          <Header title={data.site.siteMetadata.title} />
+          {children}
+          <STYLED.Footer>next page</STYLED.Footer>
+        </STYLED.Wrapper>
+      </>
+    )}
   />
 )
 

@@ -2,10 +2,9 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   @import url("https://rsms.me/inter/inter.css");
-
   height: 100vh;
   width: 100vw;
-
+  background: #333 !important;
   color: #fff !important;
   background: url(${props => props.backgroundImage});
   background-size: cover;
@@ -14,9 +13,10 @@ const Wrapper = styled.div`
 `
 
 const InnerWrapper = styled.div`
-  max-width: 1140px;
+  /* max-width: 1140px; */
 
-  height: 60%;
+  overflow: scroll;
+  height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -29,6 +29,9 @@ const NavBar = styled.nav`
   justify-content: space-between;
   padding: 20px 50px 0 50px;
   background: transparent;
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
 `
 
 const LinksWrapper = styled.div`
@@ -52,10 +55,17 @@ const Footer = styled.footer`
   right: 200px;
 `
 
+const BackgroundImage = styled.img`
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
+`
+
 export default {
   Wrapper,
   InnerWrapper,
   NavBar,
   LinksWrapper,
   Footer,
+  BackgroundImage,
 }

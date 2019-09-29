@@ -1,19 +1,12 @@
 import React from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
-import Image from "gatsby-image"
-import "./index.css"
-import About from "../components/About"
+import Layout from "../components/layout"
+import { graphql, StaticQuery } from "gatsby"
 import STYLED from "../components/styled"
 
-import hero from "../images/hero.jpg"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-const IndexPage = ({ data }) => (
+const About = ({ data }) => (
   <StaticQuery
     query={graphql`
-      query BackgroundImageQuery {
+      query AboutImageQuery {
         allFile {
           edges {
             node {
@@ -32,11 +25,10 @@ const IndexPage = ({ data }) => (
     render={data => {
       console.log({ data })
       const backgroundImage =
-        data.allFile.edges[11].node.childImageSharp.fluid.src
+        data.allFile.edges[12].node.childImageSharp.fluid.src
       console.log(backgroundImage)
       return (
         <Layout>
-          <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
           <STYLED.BackgroundImage src={backgroundImage} />
         </Layout>
       )
@@ -44,4 +36,4 @@ const IndexPage = ({ data }) => (
   />
 )
 
-export default IndexPage
+export default About
